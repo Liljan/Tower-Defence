@@ -12,10 +12,10 @@ public class WaveSpawner : MonoBehaviour
     public float waveTime = 5.0f;
     private float countDown = 0.0f;
 
-    private int waveNumber = 1;
+    private int waveNumber = 0;
     private int enemiesAlive = 0;
 
-    //public Text waveNumberText;
+    public Text waveNumberText;
 
     public void Update()
     {
@@ -32,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
     private IEnumerator SpawnWave()
     {
         ++waveNumber;
-        //waveNumberText.text = waveNumber.ToString();
+        waveNumberText.text = waveNumber.ToString();
 
         Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
         enemiesAlive = 10;
