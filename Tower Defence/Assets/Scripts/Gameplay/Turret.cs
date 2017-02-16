@@ -5,11 +5,20 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public GameObject Bullet;
+    public Transform firePoint;
+
     private Transform target;
+
+    [Header("Attributes")]
+
     public float range = 15.0f;
     private float range2;
 
     public float turnSpeed = 10.0f;
+
+    public float fireRate = 1.0f;
+    private float fireTimer = 0.0f;
 
     private bool isAlive = true;
     private bool isSearching = false;
@@ -24,7 +33,6 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (target)
         {
             Vector3 dir = target.position - transform.position;
@@ -34,6 +42,20 @@ public class Turret : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
 
+        if(target && fireTimer <= 0.0f)
+        {
+            Shoot();
+            fireTimer = 1.0f / fireRate;
+        }
+
+        fireTimer -= Time.deltaTime;
+
+    }
+
+    private void Shoot()
+    {
+        GameObject bulletGO = Instantiate(Bullet, firePoint.position, Quaternion.identity);
+        bulletGO.GetComponent<Bullet>().SetTarget(target);
     }
 
     private IEnumerator SearchForEnemy(float dt)

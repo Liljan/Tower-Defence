@@ -51,4 +51,16 @@ public class Enemy : MonoBehaviour
         ++waypointIndex;
         target = Waypoint.points[waypointIndex];
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Get em outta here!");
+        Bullet b = other.GetComponent<Bullet>();
+
+        if (b)
+        {
+            b.Kill();
+            Destroy(this.gameObject);
+        }
+    }
 }
