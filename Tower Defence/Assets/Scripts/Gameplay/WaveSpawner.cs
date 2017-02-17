@@ -19,13 +19,15 @@ public class WaveSpawner : MonoBehaviour
 
     public void Update()
     {
-        if (countDown <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            countDown = waveTime;
-            return;
-        }
+        if (enemiesAlive <= 0){
 
+            if (countDown <= 0f)
+            {
+                StartCoroutine(SpawnWave());
+                countDown = waveTime;
+                return;
+            }
+        }
         countDown -= Time.deltaTime;
     }
 
