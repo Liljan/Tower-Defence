@@ -14,8 +14,8 @@ public class Enemy : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        target = Waypoint.points[0];
-        AMOUNT_WAYPOINTS = Waypoint.points.Length;
+        target = WaypointManager.points[0];
+        AMOUNT_WAYPOINTS = WaypointManager.points.Length;
     }
 
     // Update is called once per frame
@@ -49,12 +49,11 @@ public class Enemy : MonoBehaviour
         }
 
         ++waypointIndex;
-        target = Waypoint.points[waypointIndex];
+        target = WaypointManager.points[waypointIndex];
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Get em outta here!");
         Bullet b = other.GetComponent<Bullet>();
 
         if (b)

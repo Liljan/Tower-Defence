@@ -40,7 +40,8 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < enemiesAlive; i++)
         {
             SpawnEnemy(enemyPrefab);
-            yield return new WaitForSeconds(0.1f);
+
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
