@@ -37,7 +37,7 @@ public class WaveSpawner : MonoBehaviour
         waveNumberText.text = waveNumber.ToString();
 
         Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-        enemiesAlive = 10;
+        enemiesAlive = 100;
 
         for (int i = 0; i < enemiesAlive; i++)
         {
