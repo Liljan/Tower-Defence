@@ -2,7 +2,7 @@
 
 public class FastForward : MonoBehaviour
 {
-    private float timeScale = 10.0f;
+    private float timeScale = 4.0f;
     private bool isFast = false;
 
     public void ChangeSpeed()
@@ -13,7 +13,8 @@ public class FastForward : MonoBehaviour
             isFast = false;
         }
 
-        else {
+        else
+        {
             Time.timeScale = timeScale;
             isFast = true;
         }
