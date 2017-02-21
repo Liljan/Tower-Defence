@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-
     public static BuildManager instance;
 
     // Turrets
@@ -23,7 +22,7 @@ public class BuildManager : MonoBehaviour
 
     public void Start()
     {
-        turrentToBuild = STANDARD_TURRET_PREFAB;
+        //turrentToBuild = STANDARD_TURRET_PREFAB;
     }
     // Update is called once per frame
     void Update()
@@ -34,5 +33,10 @@ public class BuildManager : MonoBehaviour
     public GameObject GetTurretToBuild()
     {
         return turrentToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject go)
+    {
+        turrentToBuild = go;
     }
 }
