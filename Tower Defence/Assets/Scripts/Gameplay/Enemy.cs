@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10.0f;
 
+    int health = 10;
+
     private Transform target;
     private int waypointIndex = 0;
     private int AMOUNT_WAYPOINTS;
@@ -61,5 +63,10 @@ public class Enemy : MonoBehaviour
             b.Kill();
             Destroy(this.gameObject);
         }
+    }
+
+    public void TakeDamage(float d)
+    {
+        Destroy(gameObject);
     }
 }
