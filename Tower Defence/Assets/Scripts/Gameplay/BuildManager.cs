@@ -9,6 +9,7 @@ public class BuildManager : MonoBehaviour
     // Turrets
     private GameObject turrentToBuild;
     public GameObject STANDARD_TURRET_PREFAB;
+    public GameObject MISSILE_TURRET_PREFAB;
 
 
     void Awake()
