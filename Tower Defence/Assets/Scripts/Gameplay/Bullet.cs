@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
     {
         if (explosionRadius > 0.0f)
         {
-            Debug.Log("Big boom");
+            Explode();
             
         }
             Destroy(gameObject);
@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
     private void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Debug.Log(colliders.Length);
 
         for (int i = 0; i < colliders.Length; i++)
         {
